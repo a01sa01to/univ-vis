@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# Univ Vis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Visualization tool for Teaching Assistance in University Lectures
 
-Currently, two official plugins are available:
+English version is available at the bottom of this document.
+Please expand the details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## リンク集
 
-## Expanding the ESLint configuration
+### 人工知能
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+時間割コード: `T73470`
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [Q 学習](https://repos.a01sa01to.com/univ-vis/q-learning/)
+- [粒子フィルタ](https://repos.a01sa01to.com/univ-vis/particle-filter/)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## バグかも？と思ったら
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+バグの報告は、以下の手順で行ってください。
+WebClass のメッセージでも OK ですが、必ず土屋も送信先に追加してください。
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. [Issues](https://github.com/a01sa01to/univ-vis/issues) にアクセス
+2. [New Issue](https://github.com/a01sa01to/univ-vis/issues/new) をクリック
+3. 以下の情報で Issue を作成してください
+   - バグの要約: タイトルに記入
+     - 「正しく表示されない」など
+   - バグの詳細: 内容を記入
+     - できるだけ具体的に記入してください
+     - 「どのような状況で発生したか」「どうなる想定だったのか」「どんな入力をしたのか」... など
+     - ブラウザの情報 (Chrome, Safari, Firefox など) や OS の情報 (Windows, Mac, Linux など) のバージョン情報も併せて記入してもらえると助かります
+     - スクリーンショットや動画を添付してもらえると、より早く解決できるかもしれません
+
+Pull Request も大歓迎です！
+
+## License
+
+GNU General Public License v3.0
+
+## English Translation
+
+<details>
+<summary> Click to expand </summary>
+
+## Links
+
+### Artificial Intelligence
+
+Class code: `T73470`
+
+- [Q Learning](https://repos.a01sa01to.com/univ-vis/q-learning/)
+- [Particle Filter](https://repos.a01sa01to.com/univ-vis/particle-filter/)
+
+## How to report a bug
+
+If you believe you found a bug, please follow these steps to report it.
+You can also send a message on WebClass, but please make sure to add Tsuchiya as a recipient.
+
+1. Access [Issues](https://github.com/a01sa01to/univ-vis/issues)
+2. Click [New Issue](https://github.com/a01sa01to/univ-vis/issues/new)
+3. Create an issue with the following information
+    - Bug summary: Write in the title
+      - "Not displayed correctly" etc.
+   - Bug details: Write the content
+     - Please be as specific as possible
+     - "In what situation it occurred", "What was expected", "What input was given" ... etc.
+     - It would be helpful if you could also include the version information of the browser (Chrome, Safari, Firefox, etc.) and OS (Windows, Mac, Linux, etc.)
+     - If you can attach a screenshot or video, it may help to resolve the issue faster
+
+Pull Requests are also very welcome!
+
+</details>
