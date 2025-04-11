@@ -1,16 +1,12 @@
 import { drawGrid } from "./draw"
-import sampleCode from "./sample-code"
 
 const inputElement = document.getElementById("input") as HTMLTextAreaElement;
 const svgElement = document.getElementById("svg")
-const sampleCodePreElement = document.getElementById("sample-code");
 const errElement = document.getElementById("error");
 const rangeDisplayElement = document.getElementById("round");
 const rangeMaxElement = document.getElementById("round-max");
 const rangeElement = document.getElementById("scale") as HTMLInputElement;
 const showExampleButton = document.getElementById("show-example") as HTMLButtonElement;
-
-if (sampleCodePreElement) sampleCodePreElement.innerHTML = sampleCode;
 
 if (svgElement) drawGrid(svgElement, new Array(100).fill(0));
 
