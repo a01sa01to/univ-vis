@@ -11,6 +11,7 @@ const publicDir = resolve(__dirname, "public")
 export default defineConfig({
   root: srcDir,
   publicDir: publicDir,
+  base: "/univ-vis",
   build: {
     emptyOutDir: true,
     outDir: distDir,

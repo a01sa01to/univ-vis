@@ -64,7 +64,7 @@ if (rangeElement) {
 
 if (showExampleButton) {
   showExampleButton.addEventListener("click", async () => {
-    const sample = await fetch("/qlearning-example.txt").then((res) => res.text());
+    const sample = await fetch("/univ-vis/qlearning-example.txt").then((res) => res.text());
     if (inputElement) inputElement.value = sample;
     onChange();
   })
