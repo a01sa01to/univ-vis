@@ -19,6 +19,7 @@ export default defineConfig({
       input: {
         'particle-filter': resolve(srcDir, "particle-filter", "index.html"),
         'q-learning': resolve(srcDir, "q-learning", "index.html"),
+        '.': resolve(srcDir, "index.html")
       }
     }
   },
