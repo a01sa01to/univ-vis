@@ -20,7 +20,13 @@ const onChange = () => {
   const val = inputElement.value;
   const round = val.split("\n").filter((v) => v.length > 0)
   if (rangeMaxElement) rangeMaxElement.innerHTML = String(round.length);
-  if (rangeElement) rangeElement.max = String(round.length);
+  if (rangeElement) {
+    if (Number(rangeElement.value) > round.length) {
+      rangeElement.value = String(round.length);
+      if (rangeDisplayElement) rangeDisplayElement.innerHTML = String(round.length);
+    }
+    rangeElement.max = String(round.length);
+  }
   if (errElement) errElement.innerHTML = "";
 
   for (let i = 0; i < round.length; ++i) {
@@ -38,7 +44,7 @@ const onChange = () => {
     }
   }
 
-  values = round.map((line) => line.split(" ").filter((v) => v.length > 0).map((v) => Number(v)));
+  values = [new Array(100).fill(0), ...round.map((line) => line.split(" ").filter((v) => v.length > 0).map((v) => Number(v)))];
   if (svgElement) drawGrid(svgElement, values[0]);
 }
 
@@ -48,11 +54,12 @@ if (inputElement) {
 
 if (rangeElement) {
   rangeElement.addEventListener("input", () => {
+    if (errElement) errElement.innerHTML = "";
     const val = rangeElement.value;
     if (rangeDisplayElement) rangeDisplayElement.innerHTML = val;
-    const round = Number(val) - 1;
+    const round = Number(val);
     if (round < 0 || round >= values.length) {
-      if (errElement) errElement.innerHTML = `1 以上 ${values.length} 以下の値を指定してください。`;
+      if (errElement) errElement.innerHTML = `0 以上 ${values.length - 1} 以下の値を指定してください。`;
       return;
     }
     if (svgElement) drawGrid(svgElement, values[round]);
