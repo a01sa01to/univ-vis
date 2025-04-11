@@ -17,7 +17,7 @@ const createCircle = (i: number, j: number, color: string) => {
   const s = createSvgElem('circle')
   s.setAttribute("cx", String(CELL_SIZE * (i + 0.5)));
   s.setAttribute("cy", String(CELL_SIZE * (j + 0.5)));
-  s.setAttribute("r", String(CELL_SIZE / 4));
+  s.setAttribute("r", String(CELL_SIZE / 8));
   s.setAttribute("fill", color);
   return s;
 };
@@ -60,14 +60,22 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
   svgElement.appendChild(createCircle(3, 4, "black"));
 
   // 矢印
+  // U R D L
+  const dx = [-0.1, 0.5, 0.1, -0.5];
+  const dy = [-0.5, -0.1, 0.5, 0.1];
+  const dir2str = ["上", "右", "下", "左"];
   for (let i = 0; i < 5; ++i) {
     for (let j = 0; j < 5; ++j) {
-      const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      group.appendChild(createArrow(i - 0.5, j + 0.1, "green", 90)); // L
-      group.appendChild(createArrow(i + 0.5, j - 0.1, "green", 270)); // R
-      group.appendChild(createArrow(i - 0.1, j - 0.5, "green", 180)); // U
-      group.appendChild(createArrow(i + 0.1, j + 0.5, "green", 0)); // D
-      svgElement.appendChild(group);
+      for (let k = 0; k < 4; ++k) {
+        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        const arrow = createArrow(i + dx[k], j + dy[k], "green", k * 90 - 180);
+        arrow.setAttribute("opacity", String(grid[i * 5 + j] / 100))
+        group.appendChild(arrow);
+        const title = createSvgElem("title");
+        title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[i * 5 + j]}`;
+        group.appendChild(title);
+        svgElement.appendChild(group);
+      }
     }
   }
 };

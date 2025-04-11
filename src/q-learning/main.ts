@@ -6,5 +6,5 @@ const svgElement = document.getElementById("svg");
 
 if (svgElement) {
   // initialize
-  drawGrid(svgElement, new Array(25).fill(0));
+  drawGrid(svgElement, new Array(25).fill(100));
 }
