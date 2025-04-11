@@ -1,0 +1,55 @@
+@use "@a01sa01to/ui/_layout.scss" as layout;
+@use "@a01sa01to/ui/_typography.scss" as typography;
+
+@mixin marg($top, $bottom) {
+  margin-top: calc($top / 16 * 1rem);
+  margin-bottom: calc($bottom / 16 * 1rem);
+}
+
+h1 {
+  @include typography.Std-32N-150;
+  @include marg(64, 24);
+  scroll-margin-top: #{layout.$header-height};
+}
+
+h2 {
+  @include typography.Std-28N-150;
+  @include marg(64, 24);
+  scroll-margin-top: #{layout.$header-height};
+}
+
+h3 {
+  @include typography.Std-24N-150;
+  @include marg(40, 24);
+  scroll-margin-top: #{layout.$header-height};
+}
+
+h4 {
+  @include typography.Std-20N-150;
+  @include marg(40, 16);
+  scroll-margin-top: #{layout.$header-height};
+}
+
+h5 {
+  @include typography.Std-16N-175;
+  @include marg(40, 16);
+  scroll-margin-top: #{layout.$header-height};
+}
+
+@media (min-width: #{layout.$breakpoint-pc}) {
+  h1 {
+    @include typography.Std-36N-140;
+  }
+  h2 {
+    @include typography.Std-32N-150;
+  }
+  h3 {
+    @include typography.Std-28N-150;
+  }
+  h4 {
+    @include typography.Std-24N-150;
+  }
+  h5 {
+    @include typography.Std-20N-150;
+  }
+}

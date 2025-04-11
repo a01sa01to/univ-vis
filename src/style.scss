@@ -1,0 +1,36 @@
+@use "@a01sa01to/ui/_reset.scss";
+@use "@a01sa01to/ui/_color.scss" as *;
+@use "@a01sa01to/ui/_effect.scss" as effect;
+@use "@a01sa01to/ui/_layout.scss" as layout;
+@use "@a01sa01to/ui/_typography.scss" as typography;
+
+@use "styles/anchor";
+@use "styles/heading";
+@use "styles/textarea";
+
+body {
+  @include typography.Std-17N-170;
+  background-color: #{$white};
+  color: #{$gray-800};
+  font-family: 'Noto Sans JP', sans-serif;
+
+  margin: auto;
+  // margin-top: #{layout.$header-height};
+  width: #{layout.$main-maxwidth};
+  max-width: 100%;
+  // scroll-margin-top: #{layout.$header-height};
+  padding: 1rem;
+}
+
+code {
+  background-color: #{$gray-100};
+  color: #{$gray-800};
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.1rem;
+  word-break: break-all;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}

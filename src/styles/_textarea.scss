@@ -1,0 +1,27 @@
+@use "@a01sa01to/ui/_color.scss" as *;
+@use "@a01sa01to/ui/_typography.scss" as typography;
+
+textarea {
+  @include typography.Std-16N-170;
+  border: 1px solid #{$gray-900};
+  border-radius: 0.5rem;
+  background-color: #{$white};
+  padding: 1rem;
+  max-width: 100%;
+  color: #{$gray-800};
+  &:focus-visible {
+    outline: 4px solid #{$black};
+    outline-offset: calc(2 / 16 * 1rem);
+    box-shadow: 0 0 0 calc(2 / 16 * 1rem) #{$yellow-300};
+  }
+  &[aria-disabled] {
+    border-color: #{$gray-300};
+    background-color: #{$gray-50};
+    pointer-events: none;
+    color: #{$gray-420};
+    @media (forced-colors: active) {
+      border-color: GrayText;
+      color: GrayText;
+    }
+  }
+}

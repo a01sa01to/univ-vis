@@ -1,13 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Q-Learning Report Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=M+PLUS+1+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.scss" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.ts"></script>
+    <h1>Q-Learning Visualizer</h1>
+    <h2>Usage</h2>
+    <ul>
+      <li>青いのはスタート、赤いのはゴール、黒いのは敵です。</li>
+      <li>矢印の濃さが Q 値を表します。</li>
+      <li><code>s00 a0</code>, <code>s00 a1</code>, <code>s00 a2</code>, <code>s00 a3</code>, <code>s01 a0</code>, ..., <code>s04 a3</code>, <code>s10 a0</code>, ... の順番に空白区切りで入力してください。</li>
+      <li>スマホ利用は想定していません。 見づらいかもしれませんが、動くとは思います。</li>
+    </ul>
+    <h2>Input</h2>
+    <textarea id="input"></textarea>
+    <h2>Result</h2>
+    <svg id="svg"></svg>
+    <details>
+      <summary>お知らせ + 宣伝</summary>
+      <ul>
+        <li>
+          このページはオープンソースです。
+          GitHub で公開しています。
+          バグかも？と思ったら GitHub の Issue でも WebClass でも、何かしらの方法でご連絡ください！
+        </li>
+        <li>プログラミングサークル Maximum をよろしくお願いします！</li>
+        <li>
+          WebClass で提出したレポートをいちいちダウンロードしないといけないの面倒じゃないですか？
+          そんなあなたに、便利な Chrome 拡張機能があります。
+        </li>
+      </ul>
+    </details>
+    <script type="module" src="./main.ts"></script>
   </body>
 </html>

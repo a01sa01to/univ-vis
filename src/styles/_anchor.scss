@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use "@a01sa01to/ui/_color.scss" as *;
+
+a {
+  color: #{$light-primary};
+  text-decoration: underline;
+  text-underline-offset: calc(3 / 16 * 1rem);
+
+  &:visited {
+    color: #{$magenta-1000};
+  }
+  &:hover {
+    color: #{color.adjust($light-primary, $lightness: -10%)};
+    text-decoration-thickness: calc(3 / 16 * 1rem);
+  }
+  &:focus-visible {
+    outline: #{$black} solid 4px;
+    outline-offset: calc(2 / 16 * 1rem);
+    box-shadow: 0 0 0 calc(2 / 16 * 1rem) #{$yellow-300};
+    border-radius: 0.25rem;
+    background-color: #{$yellow-300};
+    color: #{color.adjust($light-primary, $lightness: -10%)};
+  }
+  &:active {
+    color: #{$orange-700};
+    text-decoration-thickness: 1;
+  }
+}
+
+.openinnew {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0.2em 0.2em;
+  width: 1em;
+  height: 1em;
+}
