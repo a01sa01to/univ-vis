@@ -1,6 +1,6 @@
 const CELL_SIZE = 80;
 
-const idx = (i: number, j: number, k: number) => i * 5 * 4 + j * 4 + k;
+const idx = (i: number, j: number, k: number) => j * 5 * 4 + i * 4 + k;
 
 const createSvgElem = <T extends keyof SVGElementTagNameMap>(tag: T): SVGElementTagNameMap[T] => document.createElementNS("http://www.w3.org/2000/svg", tag);
 

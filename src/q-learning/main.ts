@@ -38,7 +38,7 @@ if (inputElement) {
       }
     }
 
-    values = round.map((line) => line.split(" ").map((v) => Number(v)));
+    values = round.map((line) => line.split(" ").filter((v) => v.length > 0).map((v) => Number(v)));
     if (svgElement) drawGrid(svgElement, values[0]);
   })
 }
