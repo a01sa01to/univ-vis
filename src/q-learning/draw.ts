@@ -78,7 +78,7 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
         const arrow = createArrow(i + dx[k], j + dy[k], color, k * 90 - 180);
         group.appendChild(arrow);
         const title = createSvgElem("title");
-        title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[idx(i, j, k)]}`;
+        title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[idx(i, j, k)].toFixed(3)}`;
         group.appendChild(title);
         svgElement.appendChild(group);
       }

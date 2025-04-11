@@ -11,7 +11,7 @@ const rangeElement = document.getElementById("scale") as HTMLInputElement;
 
 if (sampleCodePreElement) sampleCodePreElement.innerHTML = sampleCode;
 
-if (svgElement) drawGrid(svgElement, new Array(100).fill(100));
+if (svgElement) drawGrid(svgElement, new Array(100).fill(0));
 
 let values = new Array(1).fill(new Array(100).fill(0));
 
