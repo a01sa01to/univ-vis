@@ -74,7 +74,7 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
     for (let j = 0; j < 5; ++j) {
       for (let k = 0; k < 4; ++k) {
         const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        const color = grid[idx(i, j, k)] > 0 ? `rgba(0, 128, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})` : `rgba(0, 0, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})`;
+        const color = grid[idx(i, j, k)] > 0 ? `rgba(0, 128, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})` : `rgba(0, 0, 0, ${Math.abs(grid[idx(i, j, k)] / 50)})`;
         const arrow = createArrow(i + dx[k], j + dy[k], color, k * 90 - 180);
         group.appendChild(arrow);
         const title = createSvgElem("title");
