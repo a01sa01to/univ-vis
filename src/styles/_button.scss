@@ -1,0 +1,129 @@
+@use 'sass:color';
+@use "@a01sa01to/ui/_color.scss" as *;
+@use "@a01sa01to/ui/_typography.scss" as typography;
+
+button {
+  text-underline-offset: calc(3 / 16 * 1rem);
+  text-transform: none;
+  &:focus-visible {
+    outline: 4px solid #{$black};
+    outline-offset: calc(2 / 16 * 1rem);
+    box-shadow: 0 0 0 calc(2 / 16 * 1rem) #{$yellow-300};
+  }
+  &[aria-disabled] {
+    pointer-events: none;
+    @media (forced-colors: active) {
+      border-color: GrayText;
+      color: GrayText;
+    }
+  }
+}
+
+.solid-fill {
+  border: 4px double transparent;
+  background-color: #{$light-primary};
+  color: #{$white};
+  &:hover {
+    background-color: #{color.adjust($light-primary, $lightness: -10%)};
+    text-decoration: underline;
+  }
+  &:active {
+    background-color: #{color.adjust($light-primary, $lightness: -20%)};
+    text-decoration: underline;
+  }
+  &[aria-disabled] {
+    background-color: #{$gray-300};
+    color: #{$gray-50};
+  }
+}
+
+.outline {
+  border: 1px solid currentColor;
+  background-color: #{$white};
+  color: #{$light-primary};
+  &:hover {
+    background-color: #{color.adjust($light-primary, $lightness: 52.5%)};
+    color: #{color.adjust($light-primary, $lightness: -10%)};
+    text-decoration: underline;
+  }
+  &:active {
+    background-color: #{color.adjust($light-primary, $lightness: 50%)};
+    color: #{color.adjust($light-primary, $lightness: -20%)};
+    text-decoration: underline;
+  }
+  &[aria-disabled] {
+    background-color: #{$white};
+    color: #{$gray-300};
+  }
+}
+
+.text {
+  border: 0;
+  background-color: transparent;
+  color: #{$light-primary};
+  text-decoration: underline;
+  &:hover {
+    background-color: #{color.adjust($light-primary, $lightness: 52.5%)};
+    color: #{color.adjust($light-primary, $lightness: -10%)};
+    text-decoration-thickness: calc(3 / 16 * 1rem);
+  }
+  &:active {
+    background-color: #{color.adjust($light-primary, $lightness: 50%)};
+    color: #{color.adjust($light-primary, $lightness: -20%)};
+  }
+  &:focus-visible {
+    background-color: #{$yellow-300};
+  }
+  &[aria-disabled] {
+    background-color: transparent;
+    color: #{$gray-300};
+  }
+}
+
+.large {
+  @include typography.Oln-16B-100;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  min-width: 8.5rem;
+  min-height: 3.5rem;
+}
+
+.medium {
+  @include typography.Oln-16B-100;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  min-width: 6rem;
+  min-height: 3rem;
+}
+
+.small {
+  @include typography.Oln-16B-100;
+  position: relative;
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.75rem;
+  min-width: 5rem;
+  min-height: 2.25rem;
+  &::after {
+    position: absolute;
+    margin: auto;
+    inset: -100% 0;
+    height: calc(44 / 16 * 1rem);
+    content: '';
+  }
+}
+
+.x-small {
+  @include typography.Oln-14B-100;
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  min-width: 4.5rem;
+  min-height: 1.75rem;
+  &::after {
+    position: absolute;
+    margin: auto;
+    inset: -100% 0;
+    height: calc(44 / 16 * 1rem);
+    content: '';
+  }
+}
