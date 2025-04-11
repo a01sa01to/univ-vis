@@ -1,0 +1,62 @@
+@use "@a01sa01to/ui/_color.scss" as *;
+
+.shiki {
+  max-width: 100%;
+  overflow-x: auto;
+
+  position: relative;
+  counter-reset: linenumber;
+  margin: 0.5em 0;
+  border: 1px solid #{$gray-100};
+  background-color: #{$white};
+  padding: 1em;
+  padding-left: 3.8em;
+  max-height: 400px;
+  overflow: auto;
+  overflow: auto;
+
+  color: #{$gray-800};
+  font-size: 0.9em;
+  line-height: 1.2em;
+
+  hyphens: none;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 2;
+
+  & > code {
+    position: relative;
+    font-family: inherit;
+    white-space: inherit;
+  }
+
+  &::selection {
+    background: #{$lightblue-50};
+  }
+}
+
+.lineNumbersRows {
+  position: absolute;
+  top: 1em;
+  left: 0em;
+  border-right: 1px solid #{$gray-420};
+  width: 3em; /* works for line-numbers below 1000 lines */
+  pointer-events: none;
+  font-size: 100%;
+  letter-spacing: -1px;
+  user-select: none;
+  & > span {
+    display: block;
+    counter-increment: linenumber;
+    &::before {
+      display: block;
+      padding-right: 0.8em;
+      content: counter(linenumber);
+      color: #{$gray-420};
+      text-align: right;
+    }
+  }
+}
