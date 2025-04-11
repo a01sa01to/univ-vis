@@ -29,6 +29,10 @@ const createArrow = (cx: number, cy: number, color: string, deg: number) => {
   s.setAttribute("d", "M -0.5 -1 L 0 -1 L 0 0.8 L 0.7 0.8 L -0.5 2 Z");
   s.setAttribute("transform", `translate(${CELL_SIZE * (cx + 0.5)} ${CELL_SIZE * (cy + 0.5)}) scale(${CELL_SIZE / 8}) rotate(${deg})`);
   s.setAttribute("fill", color);
+  s.setAttribute("stroke", "gray");
+  s.setAttribute("stroke-width", "0.1");
+  s.setAttribute("stroke-linejoin", "round");
+  s.setAttribute("stroke-dasharray", "0.1, 0.1");
   return s;
 };
 
@@ -70,8 +74,8 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
     for (let j = 0; j < 5; ++j) {
       for (let k = 0; k < 4; ++k) {
         const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        const arrow = createArrow(i + dx[k], j + dy[k], grid[idx(i, j, k)] > 0 ? "green" : "black", k * 90 - 180);
-        arrow.setAttribute("opacity", String(Math.abs(grid[idx(i, j, k)] / 100)))
+        const color = grid[idx(i, j, k)] > 0 ? `rgba(0, 128, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})` : `rgba(0, 0, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})`;
+        const arrow = createArrow(i + dx[k], j + dy[k], color, k * 90 - 180);
         group.appendChild(arrow);
         const title = createSvgElem("title");
         title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[idx(i, j, k)]}`;
