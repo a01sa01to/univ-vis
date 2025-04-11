@@ -1,5 +1,7 @@
 const CELL_SIZE = 80;
 
+const idx = (i: number, j: number, k: number) => i * 5 * 4 + j * 4 + k;
+
 const createSvgElem = <T extends keyof SVGElementTagNameMap>(tag: T): SVGElementTagNameMap[T] => document.createElementNS("http://www.w3.org/2000/svg", tag);
 
 const createLine = (x1: number, y1: number, x2: number, y2: number, color: string, strokeWidth?: number) => {
@@ -68,11 +70,11 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
     for (let j = 0; j < 5; ++j) {
       for (let k = 0; k < 4; ++k) {
         const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        const arrow = createArrow(i + dx[k], j + dy[k], grid[i * 5 + j] > 0 ? "green" : "black", k * 90 - 180);
-        arrow.setAttribute("opacity", String(Math.abs(grid[i * 5 + j] / 100)))
+        const arrow = createArrow(i + dx[k], j + dy[k], grid[idx(i, j, k)] > 0 ? "green" : "black", k * 90 - 180);
+        arrow.setAttribute("opacity", String(Math.abs(grid[idx(i, j, k)] / 100)))
         group.appendChild(arrow);
         const title = createSvgElem("title");
-        title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[i * 5 + j]}`;
+        title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[idx(i, j, k)]}`;
         group.appendChild(title);
         svgElement.appendChild(group);
       }
