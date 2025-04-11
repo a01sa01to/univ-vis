@@ -68,8 +68,8 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
     for (let j = 0; j < 5; ++j) {
       for (let k = 0; k < 4; ++k) {
         const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        const arrow = createArrow(i + dx[k], j + dy[k], "green", k * 90 - 180);
-        arrow.setAttribute("opacity", String(grid[i * 5 + j] / 100))
+        const arrow = createArrow(i + dx[k], j + dy[k], grid[i * 5 + j] > 0 ? "green" : "black", k * 90 - 180);
+        arrow.setAttribute("opacity", String(Math.abs(grid[i * 5 + j] / 100)))
         group.appendChild(arrow);
         const title = createSvgElem("title");
         title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[i * 5 + j]}`;
