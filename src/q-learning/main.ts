@@ -1,16 +1,16 @@
 import { drawGrid } from "./draw"
 import sampleCode from "./sample-code"
 
-const inputElement = document.getElementById("input");
-const svgElement = document.getElementById("svg");
+const inputElement = document.getElementById("input") as HTMLTextAreaElement;
+const svgElement = document.getElementById("svg")
 const sampleCodePre = document.getElementById("sample-code");
 
-if (svgElement && inputElement && sampleCodePre) {
-  // initialize
-  drawGrid(svgElement, new Array(25).fill(100));
+if (sampleCodePre) sampleCodePre.innerHTML = sampleCode;
 
-  sampleCodePre.innerHTML = sampleCode;
-}
-else {
-  alert("正しく読み込まれませんでした。 再読み込みしてみてください。");
+if (svgElement) drawGrid(svgElement, new Array(25).fill(100));
+
+if (inputElement) {
+  inputElement.addEventListener("change", (e) => {
+    const val = inputElement.value;
+  })
 }

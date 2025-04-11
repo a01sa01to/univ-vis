@@ -35,3 +35,8 @@ img, svg {
   max-width: 100%;
   height: auto;
 }
+
+#error {
+  @include typography.Dns-16N-130;
+  color: #{$error-1};
+}
