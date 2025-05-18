@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "biome check",
+    "format": "biome check --write"
   },
   "devDependencies": {
     "@a01sa01to/ui": "^2.0.0-rc.10",
+    "@biomejs/biome": "^1.9.4",
     "@csstools/postcss-sass": "^5.1.1",
     "@types/node": "^22.14.0",
     "pnp-sass-importer": "^1.0.0",
