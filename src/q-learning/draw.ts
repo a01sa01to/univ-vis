@@ -1,3 +1,5 @@
+import { getColor } from "./color";
+
 const CELL_SIZE = 80;
 
 const idx = (i: number, j: number, k: number) => j * 5 * 4 + i * 4 + k;
@@ -123,11 +125,13 @@ export const drawGrid = (svgElement: HTMLElement, grid: number[]) => {
           "http://www.w3.org/2000/svg",
           "g",
         );
-        const color =
-          grid[idx(i, j, k)] > 0
-            ? `rgba(0, 128, 0, ${Math.abs(grid[idx(i, j, k)] / 100)})`
-            : `rgba(0, 0, 0, ${Math.abs(grid[idx(i, j, k)] / 50)})`;
-        const arrow = createArrow(i + dx[k], j + dy[k], color, k * 90 - 180);
+        const color = getColor(grid[idx(i, j, k)]);
+        const arrow = createArrow(
+          i + dx[k],
+          j + dy[k],
+          color.toString(),
+          k * 90 - 180,
+        );
         group.appendChild(arrow);
         const title = createSvgElem("title");
         title.textContent = `s${j}${i} a${k} (${dir2str[k]}) の Q 値: ${grid[idx(i, j, k)].toFixed(3)}`;
